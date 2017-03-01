@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+  .container.mt100
+    .row
+      .page-header.def
+        h1.f2e 欢迎进入
+          small 管理界面
+      - var srcs=['/admin/musiclist','/admin/music/new','/admin/userlist','/admin/category/new','/admin/categorylist']
+      mixin project(src,text)
+        li.l.lsn.col-md-2
+          a.btn.btn-primary(href=src) #{text}
+      ul
+        +project(srcs[0],'打开音乐列表') 
+        +project(srcs[1],'录入音乐') 
+        +project(srcs[2],'用户列表') 
+        +project(srcs[3],'录入音乐类型') 
+        +project(srcs[4],'类型列表') 

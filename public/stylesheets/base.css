@@ -1,0 +1,240 @@
+/*!
+* by zhangxinxu(.com) 2010-?
+* https://github.com/zhangxinxu/zxx.lib.css
+* under MIT license
+*/
+/* ---------------------CSS reset----------------------- */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,,blockquote,th,td{margin: 0px;padding: 0px;}
+table{border-collapse: collapse;border-spacing: 0;}
+fieldset,img{border: 0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style: normal;font-weight: normal;}
+ol ul{list-style: none;}
+caption,th{text-align: left;}
+h1,h2,h3,h4,h5,h6{font-size: 100%;font-weight: normal;}
+q:before,q:after{content: ''}
+abbr,acronym{border: 0}
+/*基本样式*/
+
+
+/* ---------------------文字排版----------------------- */
+.f12{font-size: 12px;}
+.f13{font-size: 13px;}
+.f14{font-size: 14px;}
+.f16{font-size: 16px;}
+.f20{font-size: 20px;}
+.f2e{font-size: 2em;}
+.f3e{font-size: 3em;}
+.fb{font-weight: bold;}
+.fn{font-weight: normal;}
+.t2{text-indent: 2em;}
+.lh150{line-height: 150%;}
+.lh180{line-height: 180%;}
+.lh200{line-height: 200%;}
+.unl{text-decoration: underline;}
+.no_unl{text-decoration: none;}
+.lsn{list-style: none;}
+/* ---------------------定位----------------------- */
+.tl{text-align: left;}
+.tc{text-align: center;}
+.tr{text-align: right;}
+.bc{margin-left: auto;margin-right: auto;}
+.l{float: left;}
+.r{float: right;}
+.cb{clear: both;}
+.cl{clear: left;}
+.cr{clear: right;}
+.vm{vertical-align: middle};
+.pr{position: relative;}
+.pf{position: fixed;}
+.pa{position: absolute; top:0; left: 0}
+.abs-right{position:absolute;right: 0;}
+.zoom{zoom:1;}
+.hidden{visibility: hidden;}
+.none{display: none;}
+.clearfix:after{content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+.clearfix{display: inline-block;}
+
+/* ---------------------长度高度----------------------- */
+
+.wh{width: 100%;height: 100%;}
+.w{width: 100%;}
+.w20{width:20px;}
+.w50{width:50px;}
+.w70{width:70px;}
+.w100{width:100px;}
+.w120{width:120px;}
+.w140{width:140px;}
+.w160{width:160px;}
+.w180{width:180px;}
+.w200{width:200px;}
+.w220{width:220px;}
+.w250{width:250px;}
+.w280{width:280px;}
+.w300{width:280px;}
+.w320{width:320px;}
+.w360{width:360px;}
+.w400{width:400px;}
+.w460{width:460px;}
+.w500{width:500px;}
+.w600{width:600px;}
+.w640{width:640px;}
+.w700{width:700px;}
+.pct10{width:10%;}
+.pct15{width:15%;}
+.pct20{width:20%;}
+.pct25{width:25%;}
+.pct30{width:30%;}
+.pct33{width:33.3%;}
+.pct40{width:40%;}
+.pct50{width:50%;}
+.pct60{width:60%;}
+.pct66{width:66.6%;}
+.pct70{width:70%;}
+.pct75{width:75%;}
+.pct80{width:80%;}
+.pct90{width:90%;}
+.pct100{width:100%;}
+.h50{height:50px;}
+.h80{height:80px;}
+.h100{height:100px;}
+.h200{height:200px;}
+.h300{height:300px;}
+.h400{height:400px;}
+.h500{height:500px;}
+.h600{height:600px;}
+.h700{height:700px;}
+.h{height: 100%;}
+
+/* ---------------------边距----------------------- */
+.mp0{margin: 0;padding: 0;}
+.m0{margin:0;}
+.m0c{margin: 0 auto;}
+.m5{margin:5px;}
+.m10{margin:10px;}
+.m20{margin:20px;}
+.m30{margin:30px;}
+.ml1{margin-left:1px;}
+.ml2{margin-left:2px;}
+.ml5{margin-left:5px;}
+.ml10{margin-left:10px;}
+.ml15{margin-left:15px;}
+.ml20{margin-left:20px;}
+.ml30{margin-left:30px;}
+.mr1{margin-right:1px;}
+.mr2{margin-right:2px;}
+.mr5{margin-right:5px;}
+.mr10{margin-right:10px;}
+.mr15{margin-right:15px;}
+.mr20{margin-right:20px;}
+.mr30{margin-right:30px;}
+.mt1{margin-top:1px;}
+.mt2{margin-top:2px;}
+.mt5{margin-top:5px;}
+.mt10{margin-top:10px;}
+.mt15{margin-top:15px;}
+.mt20{margin-top:20px;}
+.mt30{margin-top:30px;}
+.mt50{margin-top:50px;}
+.mt100{margin-top:100px;}
+.mb1{margin-bottom:1px;}
+.mb2{margin-bottom:2px;}
+.mb5{margin-bottom:5px;}
+.mb10{margin-bottom:10px;}
+.mb15{margin-bottom:15px;}
+.mb20{margin-bottom:20px;}
+.mb30{margin-bottom:30px;}
+.p0{padding:0;}
+.p1{padding:1px;}
+.pl1{padding-left:1px;}
+.pt1{padding-top:1px;}
+.pr1{padding-right:1px;}
+.pb1{padding-bottom:1px;}
+.p2{padding:2px;}
+.pl2{padding-left:2px;}
+.pt2{padding-top:2px;}
+.pr2{padding-right:2px;}
+.pb2{padding-bottom:2px;}
+.pl5{padding-left:5px;}
+.p5{padding:5px;}
+.pt5{padding-top:5px;}
+.pr5{padding-right:5px;}
+.pb5{padding-bottom:5px;}
+.p10{padding:10px;}
+.pl10{padding-left:10px;}
+.pt10{padding-top:10px;}
+.pr10{padding-right:10px;}
+.pb10{padding-bottom:10px;}
+.p15{padding:15px;}
+.pl15{padding-left:15px;}
+.pt15{padding-top:15px;}
+.pr15{padding-right:15px;}
+.pb15{padding-bottom:15px;}
+.p20{padding:20px;}
+.pl20{padding-left:20px;}
+.pt20{padding-top:20px;}
+.pr20{padding-right:20px;}
+.pb20{padding-bottom:20px;}
+.p30{padding:30px;}
+.pl30{padding-left:30px;}
+.pt30{padding-top:30px;}
+.pr30{padding-right:30px;}
+.pb30{padding-bottom:30px;}
+.pt100{padding-top:100px;}
+.pr60{padding-right:60px;}
+/* display */
+.dn{display:none;}
+.di{display:inline;}
+.db{display:block;}
+.dib{display:inline-block;}
+/* font-family */
+.fa{font-family:Arial;}
+.ft{font-family:Tahoma;}
+.fv{font-family:Verdana;}
+.fs{font-family:Simsun;}
+.fl{font-family:'Lucida Console';}
+.fw{font-family:'Microsoft Yahei';}
+/* cursor */
+.poi{cursor:pointer;}
+.def{cursor:default;}
+/* overflow */
+.ovh{overflow:hidden;}
+.ova{overflow:auto;}
+/* border */
+.bdc{border:1px solid #ccc;}
+.blc{border-left:1px solid #ccc;}
+.brc{border-right:1px solid #ccc;}
+.btc{border-top:1px solid #ccc;}
+.bbc{border-bottom:1px solid #ccc;}
+.bd0f{border:1px solid #00FFFF;}
+.bd0f{border-left:1px solid #00FFFF;}
+.bd0f{border-right:1px solid #00FFFF;}
+.bd0f{border-top:1px solid #00FFFF;}
+.bd0f{border-bottom:1px solid #00FFFF;}
+/* background-color */
+.bgblue{background: #3498db;}/*蓝色*/
+.bgwhite{background: #ffffff;}/*白色*/
+.bglp{background: #FFB6C1 }/*亮粉色*/
+.bggreen{background: #2ecc71}/*绿色*/
+.bgred{background: #e74c3c}/*红色*/
+.bgyellow{background: #f1c40f}/*黄色*/
+.bg{background: rgb(237,237,239);}
+/*  color */
+.g0{color:#000;}
+.g3{color:#333;}
+.g6{color:#666;}
+.g9{color:#999;}
+.gc{color:#ccc;}
+.g0f{color:#00FFFF}
+.gc0{color:#CC0000 }
+.green{color:#16a085;}
+.wh{color:white;}
+/* letter-spacing */
+.lt-1{letter-spacing:-1px;}
+.lt0{letter-spacing:0;}
+.lt1{letter-spacing:1px;}
+/*盒子投影*/
+.box-shadow{box-shadow: 1px 1px 1px #ddd;}
+.bgp{background-position: center center;}
+.box-radius{border-radius: 5px}
+.border{border: 1px solid #ddd;}
+.op{opacity: 0.8}

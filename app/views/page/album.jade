@@ -1,0 +1,62 @@
+extends ../layout
+
+block content
+  .container
+    .row
+      img#radio_bg.pa(src="../../../images/10.jpg")
+      #musicPlayerWrap.m-player-wrap
+        #musicPlayer.m-player
+          #musicInfo.m-info
+            img#albumFrontCover.album-front-cover(src="../../../images/head.jpg")
+            .front-cover-mask
+            #infoWrap.info-wrap
+              dl(style='margin:0')
+                dt#musicName(title="") #{musics[0].title}
+                dd#musicSinger(title="") #{musics[0].musicer}
+                dd#albumName(title="") 无
+              #musicFunction.m-function
+                a#albumLists.album-lists.album-lists-hover(href="javascript:void(0)" title="关闭专辑页面")
+                a#lyrics.lyrics.lyrics-hover(href="javascript:void(0)" title="关闭歌词")
+          #broadcastControl.broadcast-control.clearfix
+            div.broadcast-control-m
+              a#play.m-play.dn(href="javascript:void(0)" title="播放")
+              a#pause.m-pause(href="javascript:void(0)" title="暂停")
+              a#next.m-next.db(href="javascript:void(0)" title="下一曲")
+              a#prev.m-prev.db(href="javascript:void(0)" title="上一曲")
+              .play-progress-rate
+                span#playTime.play-time 0:00
+                #progressRateBg.progress-rate-bg
+                  #progressRateColor.progress-rate-color
+                span#surplusTime.surplus-time 0:00
+              a#nowVolume.volume.volume-active.now-volume(href="javascript:void(0)" title="音量")
+              a#nowMute.mute.mute-active.now-volume.dn(href="javascript:void(0)" title="静音")
+              a#nowPlayManner.now-manner.list-cycle.list-cycle-active(href="javascript:void(0)" title="列表循环")
+              #volumeControl.volume-wrap.dn
+                a#volume.volume(href="javascript:void(0)" title="点击设为静音")
+                a#mute.mute.dn(href="javascript:void(0)" title="点击开启声音")
+                #volumeSizeBg.volume-size-bg(title="音量调节")
+                  #volumeSizeColor.volume-size-color(data-volume="" data-height="" style="height:0%")
+              #playMannerControl.play-manner-wrap.dn
+                a#orderPlay.order-play(href="javascript:void(0)" title="顺序播放")
+                a#singleCycle.single-cycle(href="javascript:void(0)" title="单曲循环")
+                a#shufflePlay.shuffle-play(href="javascript:void(0)" title="随机播放")
+                a#listCycle.list-cycle(href="javascript:void(0)" title="列表循环")
+        #musicPlayerSwitch.m-player-switch.off(title="隐藏播放器")
+          a#playerSwitchBtn.switch-off.db(href="javascript:void(0)")
+        #lrcWrap.lrc-wrap
+          #loadLrc.load-lrc.hidden
+          #lrcBox.lrc-box
+            .no-lrc 暂无歌词
+        audio#musicEngine(src=musics[0].flash, autoplay="autoplay")
+      #musicList.music-list
+        .list-title
+          strong#listName 专辑列表
+          span#cutoverList.cutover-list 返回
+          #closeList.close-list(title="关闭列表")
+        #listWrap.list-wrap.song
+          each item in musics
+            li.col-md-12.lsn.playitem
+              span.s-name.col-md-5(title=item.title) #{item.title}
+              span.s-musicer.col-md-5(title=item.musicer data-url=item.flash) #{item.musicer}
+              span.s-time.col-md-2 03:41
+      script(src="../../../javascripts/album.js")

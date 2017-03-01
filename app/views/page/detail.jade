@@ -1,0 +1,60 @@
+extends ../layout
+
+block content
+  .container.mt100
+    .row
+      .col-md-7
+        embed(src="#{music.flash}",allowFullScreen="true", quality="high", width="720", height="600",align="middle",type="application/x-shockwave-flash")
+        .panel.panel-default
+          .panel-heading
+            h3 评论区
+          .panel-body
+            ul.media-list
+              each item in comments
+                li.media
+                  .pull-left
+                    a.comment(href="#comments", data-cid="#{item._id}", data-tid="#{item.from._id}")
+                      img.media-object(src="../../../images/head.jpg" style="width:64px; height:64px;")
+                  .media-body
+                    h4.media-heading #{item.from.name} 
+                    p #{item.content}
+                    if item.reply && item.reply.length > 0
+                    each reply in item.reply
+                      .media
+                        .pull-left
+                          a.comment(href="#comments", data-cid="#{item._id}", data-tid="#{reply.from._id}")
+                            img.media-object(src="../../../images/head.jpg" style="width:64px; height:64px;")
+                          .media-body
+                            h4.media-heading 
+                              | #{reply.from.name}
+                              span.text-info &nbsp;回复&nbsp;
+                              | #{reply.from.name}:
+                            p #{reply.content}
+      .col-md-5
+        dl.dl-horizontal
+          dt 音乐名字
+          dd= music.title
+          dt 演唱者
+          dd= music.musicer
+          dt 国家
+          dd= music.country
+          dt 语言
+          dd= music.language
+          dt 年份
+          dd= music.year
+          dt 简介
+          dd= music.summary
+
+
+      .col-md-7#comments
+        form#commentForm(method="post", action="/user/comment")  
+          input#comment_music(type="hidden", name="comment[music]", value="#{music._id}")
+          if user
+            input#comment_from(type="hidden", name="comment[from]", value="#{user._id}") 
+          .form-group
+            textarea.form-control#comment_content(name="comment[content]", row="3")
+          if user
+            button.btn.btn-primary#ajax_comment(type="button") 提交  
+
+          else
+            a.navbar-link#ajax_comment(href="#",data-toggle="modal",data-target="#signupModal") 登陆后评论 

@@ -1,0 +1,363 @@
+html,body{
+	height: 100%;
+}
+body {
+  padding: 50px;
+
+
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+  text-decoration: none;
+}
+a:active,a:link{
+	text-decoration: none;
+}
+
+/*intro页面样式*/
+html,body{
+	height: 100%;
+	margin: 0;
+}
+.transition{
+	-webkit-transition:all 0.5s;
+}
+.scale:hover{
+	-webkit-transform:scale(1.1,1.1);
+}
+.scale:active{
+	-webkit-transform:scale(5,5);
+	opacity: 0;
+}
+
+/*抖动*/
+@-webkit-keyframes buzz-out{
+	10%{
+		-webkit-transform:translateX(3px) rotate(2deg);
+	}
+	20%{
+		-webkit-transform:translateX(-30px) rotate(2deg);
+	}
+	30%{
+		-webkit-transform:translateX(3px) rotate(2deg);
+	}
+	40%{
+		-webkit-transform:translateX(-3px) rotate(2deg);
+	}
+	50%{
+		-webkit-transform:translateX(2px) rotate(2deg);
+	}
+	60%{
+		-webkit-transform:translateX(-2px) rotate(2deg);
+	}
+	70%{
+		-webkit-transform:translateX(2px) rotate(2deg);
+	}
+	80%{
+		-webkit-transform:translateX(-2px) rotate(2deg);
+	}
+	90%{
+		-webkit-transform:translateX(1px) rotate(2deg);
+	}
+	100%{
+		-webkit-transform:translateX(-1px) rotate(2deg);
+	}
+	
+
+}
+.buzz-out:hover{
+	-webkit-animation-name:buzz-out;
+	-webkit-animation-duration:0.75s;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-iteration-count:1;
+}
+
+/*主页*/
+#page_head_img{
+	display: inline-block;
+}
+#index_head_text{
+	position: absolute;
+	z-index: 100;
+	top: 300px;
+	font-size: 4em;
+	line-height: 50%;
+	font-weight: bold;
+	color:#2980b9;
+}
+#page_head_down{
+	display: inline-block;
+	position: absolute;
+	left: 0px;
+	bottom: 40px;
+	width: 100px;
+	height: 100px;
+	background: #fff;
+	opacity: 0;
+	border-radius: 50%;
+	cursor: pointer;
+}
+#index_head:hover #page_head_down{
+	opacity: 0.4;
+	display: block;
+}
+#frendlytip{
+	height: 300px;
+	line-height: 2em;
+}
+#frendlytip p{
+	cursor: default;
+}
+/*个人页面*/
+.blur{
+	padding: 1em;
+	background: hsla(0,0%,100%,.25) border-box;
+	overflow: hidden;
+    border-radius: .3em;
+    -webkit-box-shadow: 0 .5em 1em rgba(0, 0, 0, 0.6);
+    -webkit-text-shadow: 0 1px 1px hsla(0,0%,100%,.3);
+}
+.blur:before{
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            margin: -30px;
+            z-index: -1;
+            -webkit-filter:blur(3px)  
+            filter: blur(3px);
+        	}
+
+
+
+
+/*-------------------------------------------主页图片特效--------------------------*/
+/*图片放大功能*/
+.img_scale:hover{
+	-webkit-transform:scale(1.1,1.1);
+}
+
+/*图片的文字特效*/
+.img_text_translate_bottom{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-family: "微软雅黑";
+	background: #000;
+	color: #fff;
+	-webkit-transform:translate(0px,300px);
+	opacity:0;
+}
+#img_translate_bottom:hover .img_text_translate_bottom{
+	-webkit-transform:translate(0px,150px);
+	opacity:0.6;
+}
+
+.img_text_translate_right{
+	width: 50%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-family: "微软雅黑";
+	background: #000;
+	color: #fff;
+	-webkit-transform:translate(600px,0);
+	opacity:0;
+	font-size: 22px;
+}
+#img_translate_right:hover .img_text_translate_right{
+	-webkit-transform:translate(0,0);
+	opacity:0.6;
+}
+
+
+.img_text_rotate{
+	width: 100%;
+	height: 200px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-family: "微软雅黑";
+	background: #000;
+	color: #fff;
+	-webkit-transform-origin:left bottom;
+	-webkit-transform:translate(0,207px) rotate(0deg);
+	opacity:0.7;
+}
+
+#img_rotate:hover .img_text_rotate{
+	-webkit-transform:rotate(25deg);
+	opacity:0.6;
+}
+
+
+/*轮播CSS*/
+#carousel{
+	position: relative;
+	width: 100%;
+	height: 600px;
+}
+#carousel:hover .arrow{
+	display: block;
+	opacity: 0.6
+}
+#carousel ul{
+	width: 600%;
+	position: absolute;
+}
+#carousel ul li{
+	width: 16.6666%;
+}
+#carousel ul li img{
+	width: 100%;
+}
+#prev,#next{
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	z-index: 100;
+	color: #fff;
+	font-size: 7em;
+	line-height: 100px;
+	text-align: center;
+	opacity: 0;
+}
+#prev{
+	top: 250px;
+	left: 20px;
+}
+#next{
+	top: 250px;
+	right: 20px;
+}
+#prev:hover,#next:hover{
+	text-decoration: none;
+}
+#carousel_btn{
+	width: 80%;
+	position: absolute;
+	top: 550px;
+	left: 5%;
+}
+.carousel_btn{
+	margin: 1px 10px;
+	width: 20%;
+	height: 20px;
+	background: #ccc;
+	border-radius: 1px;
+	opacity: 0.6;
+}
+
+
+#carousel_btn .on{
+	background-color: black;
+}
+
+/*瀑布流CSS*/
+#waterFall_main{
+	width: 100%;
+	height: auto;
+	position: relative;
+	float: left;
+}
+.waterFall_box{
+	padding: 15px 1%; 
+	float: left;
+	width: 33.333%;
+}
+.waterFall_pic{
+	padding: 2%;
+	border: 1px solid #ccc;
+	border-radius:5px;
+	box-shadow: 0 0 5px #ccc;
+}
+.waterFall_pic img{
+	width: 100%;
+	height: auto;
+}
+
+
+/*话题界面*/
+
+#topic_container{
+	width: 100%;
+	margin: 100px auto;
+}
+#topic{
+	margin: 0 auto;
+	width:50%;
+	padding: 20px;
+	overflow: hidden;
+}
+#topic-head{
+	font-size: 2em;
+	font-family: "微软雅黑";
+	font-weight: 2;
+}
+#topic-box{
+	width: 90%;
+	float: left;
+	padding: 2%;
+	margin: 2%;
+}
+.topic_header {
+	width: auto;
+	display: inline-block;
+	margin-bottom: 10px;
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #555;
+}
+.topic_img{
+	width: 100%;
+	height: auto;
+}
+
+
+
+/*radio界面样式*/
+#zheng{
+	margin-left: 10%;
+	width: 80%;
+	height: 80%;
+	background: #fff;
+	opacity: 1;
+}
+#zheng a{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+#circle_content{
+	position: absolute;
+	/*display: inline-block;
+	width: 100%;
+	height: 100%;*/
+	font-size: 2em;
+	font-weight: bold;
+	text-align: center;
+	color:#e74c3c;
+	top: 20%;
+	left: 20%;
+	/*line-height: 160px;*/
+}
+
+#radio_albumshow{
+	background: #000;
+	opacity: 0.7;
+}
+
+
+/*全部专辑界面*/
+/*.album_mask{
+	height: 100%;
+	opacity: 0.5;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}*/

@@ -1,0 +1,91 @@
+extends ../layout
+
+block content
+  img.w.h.pf(src="../../../images/3.jpg")
+  .container.pt100
+    .row
+      .col-md-3.h300.blur.tc
+        if person.head
+          img.dib(src="../../.."+person.head style="width:40%; height:40%;")
+        else 
+          img.dib(src="../../../images/head.jpg" style="width:40%; height:40%;")
+        span.mt15.db #{person.name}
+        if user._id == person._id
+          button.btn.btn-primary.mt10(type='button', data-toggle="modal",data-target="#head_upload") 上传头像
+          span.mt20.db.fb.f1e 我的关注
+        else
+          from(method='post' action="/user/concern")
+            input#concernPerson(type="hidden" name="concern[person]" value='#{person._id}')
+            input#concernUser(type="hidden" name="concern[user]" value='#{user._id}')
+            button.btn.btn-primary.mt20#ajax_concern(type="button") 加入关注 
+          span.mt20.db.fb.f1e 他的关注
+        if person.concerns.length != 0
+          each item in person.concerns
+            li.lsn.mt5
+              a.dib.f20.poi.no_unl(href="/user/"+item._id) #{item.name}
+      .col-md-8.h.bgwhite.col-md-offset-1.blur
+        p.fb.f2e.fw.lt1 日志
+        if user._id == person._id
+          .col-md-12.form#talkForm(method="post",action="/user/talk")
+            input#talk_user(type="hidden",name="talk[user]",value="#{person._id}")
+            textarea.form-control#talk_content(name="talk[content]",row="3" )
+            button.btn.btn-primary.mt5.pull-right#ajax_talk(type="button") 发表
+        .col-md-12.box-radius.mt10#talk_list.h.bgwhite
+          ul.media-list.mt30
+            each talk in talks
+              li.media
+                .pull-left
+                  img.media-object.pull-left(src="../../../images/head.jpg" style="width:64px; height:64px;")
+                .media-body
+                  h4 #{person.name}
+                  p #{talk.content}
+                if talk.talk_comments
+                  .panel.panel-default
+                    .panel-heading 
+                      h3 热门评论
+                    .panel-body(id=talk._id)
+                      ul.media-list.col-md-12
+                        each item in talk.talk_comments
+                          li.media.pt15
+                            .pull-left
+                              a.talk_comment(href=('#'+talk._id), data-cid="#{item._id}", data-tid="#{item.from._id}")
+                                img.media-object(src="../../../images/head.jpg" style="width:64px; height:64px;")
+                            .media-body
+                              a.dib.media-heading(href="/user/"+item.from._id) #{item.from.name} 
+                              p #{item.content}
+                              if item.reply && item.reply.length > 0 
+                              each reply in item.reply
+                                .media
+                                  .pull-left
+                                    a.comment(href=('#'+talk._id), data-cid="#{item._id}", data-tid="#{reply.from._id}")
+                                      img.media-object(src="../../../images/head.jpg" style="width:64px; height:64px;")
+                                    .media-body
+                                      h4.media-heading 
+                                        | #{reply.from.name}
+                                        span.text-info &nbsp;回复&nbsp;
+                                        | #{reply.from.name}:
+                                      p #{reply.content}
+                .col-md-12(id=('#'+talk._id))
+                  form(method='post', action='/user/talk/comment')
+                    input.talk_comment_talk(type='hidden', name='talk_comment[talk]', value='#{talk._id}' id=('talk_comment_talk'+talk._id))
+                    input.talk_comment_from(type='hidden', name='talk_comment[from]', value='#{user._id}' id=('talk_comment_from'+user._id))
+                    .form-group
+                      textarea.form-control.talk_comment_content(name='talk_comment[content]', rows='3')
+                      button.btn.btn-primary.pull-right.mt5.ajax_talk_comment(type='button') 评论 
+  #head_upload.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header 头像上传
+          .modal-body.col-md-12#head_upload_prev
+            form.col-md-12#head_upload(method="post" enctype="multipart/form-data" action="/head/upload")
+              h2.fb 上传头像
+              input.form-control#head_upload_name(type='file', name='fulAvatar')
+              .col-md-12
+                button.btn.btn-primary.pull-right.mt10#ajax_head_upload(type='button') 上传 
+            form.col-md-12(method="post" action="/user/head/upload")
+              input(type="hidden" name="user[id]", value=user._id)
+              input#head_upload_head(type="hidden" name="user[head]", value=user._id)
+              button.btn.btn-primary.pull-right.mt20 提交 
+          .modal-footer
+            button.btn.btn-default.mt20(type="button",data-dismiss="modal") 确定
+        

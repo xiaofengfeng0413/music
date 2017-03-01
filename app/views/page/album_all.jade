@@ -1,0 +1,47 @@
+extends ../layout
+
+block content
+  div.w
+    .row.m0
+      #carousel.mt50.ovh
+        ul.col-md-12.l.p0#carousel_gallery(style="left:0")
+          li.lsn.l
+            a.w.l(href="#")
+              img.dib.h700(src="../../../images/lunbo_car.jpg")
+          li.lsn.l
+            a.w.l(href="#")
+              img.dib.h700(src="../../../images/lunbo_minyao.jpg")
+          li.lsn.l
+            a.w.l(href="#")
+              img.dib.h700(src="../../../images/lunbo_qingyinyue.jpg")
+          li.lsn.l
+            a.w.l(href="#")
+              img.dib.h700(src="../../../images/dongman.jpg")
+          li.lsn.l
+            a.w.l(href="#")
+              img.dib.h700(src="../../../images/lunbo_car.jpg")
+          li.lsn.l
+            a.w.l(href="#")
+              img.dib.h600(src="../../../images/lunbo_minyao.jpg") 
+        a#prev.no_unl.arrow.transition(href="javascript:void(0)") &lt;
+        a#next.no_unl.arrow.transition(href="javascript:void(0)") &gt;
+        .col-md-10.col-md-offset-1#carousel_btn
+          a.carousel_btn.btn.on(href="javascript:void(0)")
+          a.carousel_btn.btn(href="javascript:void(0)")
+          a.carousel_btn.btn(href="javascript:void(0)")
+          a.carousel_btn.btn(href="javascript:void(0)")
+    script(src="../../../javascripts/carousel.js")
+  .container.m0c.pct80
+    .row
+      h1.w.fb.f2e.bbc.pull-left.def.mt50 全部专辑
+      col-md-12.ovh
+        each item in categories
+          .col-md-4.mt20.p0.album_item.pr#img_translate_bottom.ovh
+            a.db.ovh(href="category/"+item._id)
+              img.w(src="../../../"+item.pic style="height:300px")
+              div.transition.img_text_translate_bottom.tc
+                p.fb.f2e.lt1 PLAY!!
+                p.fb.f2e.lt1 item.name
+
+
+

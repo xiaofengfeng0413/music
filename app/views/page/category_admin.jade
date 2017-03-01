@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+  .container.mt100
+    .row
+      form.col-md-10#category_upload(method="post" enctype="multipart/form-data" action="/category/upload")
+        h2.fb 分类封面上传
+        input.form-control#category_upload_name(type='file' name='fulAvatar')
+        .col-md-12
+          button.btn.btn-primary.pull-right.mt10#ajax_category_upload(type='button') 上传
+      form.form-horizontal.col-md-10.mt50(method="post",action="/admin/category")
+        input#inputCategoryPic(type="hidden" name="category[pic],value=category.pic")
+        if(category._id)
+          input(type="hidden" name="category[_id]",value=category._id)
+        .form-group
+          label.col-md-2.control-label(for="inputCategory") 音乐分类
+          .col-md-10
+            input#inputCategory.form-control(type="text",name="category[name]", value=category.name)
+        .from-group
+          label.col-md-2.control-label(for="inputCategoryIntro") 类型简介
+          .col-md-10
+            textarea#inputCategoryIntro.form-control(name="category[intro]", value=category.intro rows='3')
+        .form-group.pull-right 
+          .col-md-10 
+            button.btn.btn-primary.mt10(type="submit") 录入

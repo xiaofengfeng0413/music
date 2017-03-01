@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+  .container.mt100
+    .row
+      table.table.table-hover.table-borderrd
+        thead
+          tr
+            th 用户名
+            th 录入时间
+            th 查看
+            th 更新
+            th 删除
+        tbody
+        each item in categories
+          tr(class="item-id-#{item._id")
+            td #{item.name}
+            td #{item.meta.createAt}
+            td: a(target="_blank",href="/category/#{item._id}") 查看
+            td: a(target="_blank",href="/category/update/#{item._id}") 修改
+            td
+              button.btn.btn-danger.del(type="button" data-id="#{item._id}") 删除

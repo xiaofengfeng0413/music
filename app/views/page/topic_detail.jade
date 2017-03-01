@@ -1,0 +1,37 @@
+extends ../layout
+
+block content
+  .container.mt50
+    .row
+      h1.fb.mb20.f2e #{topic.title}
+      .col-md-12.w
+        img.w(src="../../.."+topic.pic )
+      .col-md-12.w
+        p.fb.mt50.mb20 #{topic.content}
+      .panel.panel-default.col-md-12
+        .panel-heading
+          h3 热门评论
+        .panel-body
+          ul.media-list
+            if topic_comments
+              each item in topic_comments
+                li.media.mt30
+                  .pull-left
+                    a.topic_comment(href="#topic_comment")
+                      img.media-object(src="../../../images/head.jpg" style="width:64px; height:64px;")
+                  .media-body
+                    a.db.media-heading(href="/user/"+item.from._id) #{item.from.name}
+                    p #{item.content}
+
+      .col-md-7#topic_comment
+        form#topicCommentForm(method="post", action="/topic/comment")  
+          if topic
+            input#comment_topic(type="hidden", name="topic_comment[topic]", value=topic._id)
+          if user
+            input#comment_topic_from(type="hidden", name="topic_comment[from]", value=user._id)
+          .form-group
+            textarea.form-control#topic_comment_content(name="topic_comment[content]", rows="3")
+          if user
+            button.btn.btn-primary#ajax_topic_comment(type="button") 提交  
+          else
+            a.navbar-link(href="#",data-toggle="modal",data-target="#signupModal") 登陆后评论 

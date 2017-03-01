@@ -1,0 +1,35 @@
+extends ../layout
+
+block content
+  #topic_container
+    #topic.border.box-shadow.box-radius.p30.bgwhite
+      if user && user.role >= 10
+        button.btn.btn-primary.pull-right(data-toggle="modal",data-target="#launchTopic") 发起话题
+      p#topic-head 热门话题
+      if topics
+        each item in topics
+          .border.box-shadow.box-radius#topic-box
+            a.topic_header(href='/topic/'+item._id) #{item.title}
+            img.topic_img(src="../../../"+item.pic)
+  #launchTopic.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header 发起话题
+          .modal-body.l
+            form.col-md-12#topic_upload(method="post" enctype="multipart/form-data" action="/topic/upload")
+              h2.fb 话题封面上传
+              input.form-control#topic_upload_name(type='file' name='fulAvatar')
+              .col-md-12
+                button.btn.btn-primary.pull-right.mt10#ajax_topic_upload(type='button') 上传  
+            form.col-md-12(method="post",action="/topic/launch")
+              input#inputTopicPic(type="hidden", name="topic[pic], value=topic.pic")
+              .form-group.mt5
+                label.control-label(for="TopicTitle") 话题题目
+                input#TopicTitle.form-control(type="text", name="topic[title]")
+              .form-group.mt5
+                h1.fb 话题内容
+                textarea.form-control(rows="3" name="topic[content]")
+                button.btn.btn-success.mt5.pull-right(type="submit") 提交
+          .modal-footer
+            button.btn.btn-default.mt20(type="button",data-dismiss="modal") 关闭
+              

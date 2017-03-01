@@ -1,0 +1,59 @@
+extends ../layout
+
+block content
+  .container.mt100
+    .row
+      form.form-horizontal(method="post",action="/admin/music")
+        .from-group.col-md-12.mb10
+          label.col-md-2.control-label(for="wangyi") 网易云音乐同步
+          .col-md-10
+            input#wangyi.form-control(type="text")
+        if music._id
+          input(type="hidden",name="music[_id]",value=music._id)
+        .form-group
+          label.col-md-2.control-label(for="inputCategory") 音乐分类
+          .col-md-10
+            input#inputCategory.form-control(type="text",name="music[categoryName]", value=music.categoryName)
+        .form-group
+          label.col-md-2.control-label(for="") 分类选择
+          each cat in categories
+            label.radio-inline
+              if music._id
+                input(type="radio",name="music[category]",value=cat._id, checked=cat.id.toString()==music.category.toString())
+              else
+                input(type="radio",name="music[category]",value=cat._id)
+              | #{cat.name}
+        .form-group
+          label.col-md-2.control-label(for="inputTitle") 音乐名字
+          .col-md-10
+            input#inputTitle.form-control(type="text",name="music[title]", value=music.title)
+        .form-group
+          label.col-md-2.control-label(for="inputMusicer") 音乐演唱
+          .col-md-10
+            input#inputMusicer.form-control(type="text",name="music[musicer]", value=music.musicer)
+        .form-group
+          label.col-md-2.control-label(for="inputCountry") 国家
+          .col-md-10
+            input#inputCountry.form-control(type="text",name="music[country]", value=music.country)
+        .form-group
+          label.col-md-2.control-label(for="inputLanguage") 语种
+          .col-md-10
+            input#inputLanguage.form-control(type="text",name="music[language]", value=music.language)
+        .form-group
+          label.col-md-2.control-label(for="inputPoster") 海报地址
+          .col-md-10
+            input#inputPoster.form-control(type="text",name="music[poster]", value=music.poster)
+        .form-group
+          label.col-md-2.control-label(for="inputFlash") 音乐资源
+          .col-md-10
+            input#inputFlash.form-control(type="text",name="music[flash]", value=music.flash)
+        .form-group
+          label.col-md-2.control-label(for="inputYear") 音乐年代
+          .col-md-10
+            input#inputYear.form-control(type="text",name="music[year]", value=music.year)
+        .form-group
+          label.col-md-2.control-label(for="inputSummary") 音乐简介
+          .col-md-10
+            input#inputSummary.form-control(type="textarea",name="music[summary]", value=music.summary)
+        button.btn.btn-primary.col-md-offset-2(type="submit") 录入
+    script(src="../../../javascripts/admin.js")

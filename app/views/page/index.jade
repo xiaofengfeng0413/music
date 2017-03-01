@@ -1,0 +1,82 @@
+extends ../layout
+
+block content
+  .container-fluid.mp0
+    .row.mp0
+      .col-md-12.tc#index_head(style="padding:0")
+        img.w#page_head_img(src="../../../images/full-page.jpg")
+        img#page_head_down.p10(src="../../../images/down.png")
+      .col-md-10.col-md-offset-1.mt30.mb10.tc
+        p.w.fb.f3e.bbc.pull-left.def.mt50.fw.green 热门专辑分类 
+        a.dib.pull-right.f2e.fb.lt1(href="/album/all") 更多  
+        .col-md-12.bbc
+          .col-md-12.ovh
+            .col-md-7.pr30.brc.mb20.mt30.ovh.pr#img_translate_bottom
+              a.db.ovh.col-md-12.p0(href="album/category/"+categories[0]._id)
+                img.db.w.img_scale.transition.ovh(src="../../.."+categories[0].pic style="height:414px")
+                div.transition.img_text_translate_bottom
+                  h2.f20 #{categories[0].name}
+                  p.f20 #{categories[0].intro}
+            .col-md-5.mt30.ovh.h#img_translate_right
+              .col-md-12.ovh.h
+                a.db.ovh.col-md-12.p0.h(href="album/category/"+categories[1]._id)
+                  img.db.w.img_scale.transition(src="../../../"+categories[1].pic style="height:414px")
+                  div.transition.img_text_translate_right
+                    h2 #{categories[1].name}
+                    p #{categories[1].intro}
+        .col-md-12.ovh
+          .col-md-12.bbc
+            .col-md-6.brc.mb20.mt30.ovh.f20
+              .col-md-12.ovh#img_translate_right
+                a.db.ovh.col-md-12.p0(href="album/category/"+categories[3]._id)
+                  img.db.w.img_scale.transition(src="../../../"+categories[3].pic style="height: 580px")
+                  div.transition.img_text_translate_right
+                    h2 #{categories[3].name}
+                    p #{categories[3].intro}
+            .col-md-6.mt30.ovh.pl30
+              .col-md-12#img_translate_bottom
+                a.db.ovh.col-md-12.p0(href="album/category/"+categories[4]._id)
+                  img.db.w.img_scale.transition.ovh(src="../../.."+categories[4].pic, style="height: 290px")
+                  div.transition.img_text_translate_bottom
+                    h2.f20 #{categories[4].name}
+                    p.f20 #{categories[4].intro}
+              .col-md-12#img_translate_bottom
+                a.db.ovh.col-md-12.p0(href="album/category/"+categories[5]._id)
+                  img.db.w.img_scale.transition.ovh(src="../../.."+categories[5].pic, style="height: 290px")
+                  div.transition.img_text_translate_bottom
+                    h2.f20 #{categories[5].name}
+                    p.f20 #{categories[5].intro}
+          .col-md-12.ovh.bbc
+            .col-md-5.pr30.brc.mb20.mt30.ovh.pr#img_translate_bottom
+              a.db.ovh.col-md-12.p0(href="album/category/"+categories[6]._id)
+                img.db.w.img_scale.transition.ovh(src="../../.."+categories[6].pic style="height:414px")
+                div.transition.img_text_translate_bottom
+                  h2.f20 #{categories[6].name}
+                  p.f20 #{categories[6].intro}
+            .col-md-7.mt30.ovh.h#img_translate_right
+              .col-md-12.ovh.h
+                a.db.ovh.col-md-12.p0.h(href="album/category/"+categories[7]._id)
+                  img.db.w.img_scale.transition(src="../../../"+categories[7].pic style="height:414px")
+                  div.transition.img_text_translate_right
+                    h2 #{categories[7].name}
+                    p #{categories[7].intro}  
+          .col-md-12.ovh.bbc
+            .col-md-6.pr30.brc.mb20.mt30.ovh.pr#img_translate_bottom
+              a.db.ovh.col-md-12.p0(href="album/category/"+categories[8]._id)
+                img.db.w.img_scale.transition.ovh(src="../../.."+categories[8].pic style="height:414px")
+                div.transition.img_text_translate_bottom
+                  h2.f20 #{categories[8].name}
+                  p.f20 #{categories[8].intro}
+            .col-md-6.mt30.ovh.h#img_translate_right
+              .col-md-12.ovh.h
+                a.db.ovh.col-md-12.p0.h(href="album/category/"+categories[9]._id)
+                  img.db.w.img_scale.transition(src="../../../"+categories[9].pic style="height:414px")
+                  div.transition.img_text_translate_right
+                    h2 #{categories[9].name}
+                    p #{categories[9].intro}          
+        .col-md-12.mt50#frendlytip.tc
+          a.db.mt10(href="#") 关于我们
+          a.db.mt10(href="#") 帮助中心
+          span.db.mt10 β-猫团队制作
+
+             

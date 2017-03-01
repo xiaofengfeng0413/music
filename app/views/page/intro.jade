@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  .container
+    .row
+      if user
+        a(href="/user/#{user._id}").db.col-md-5.h300.bggreen.m30.transition.scale.g0.tc
+          img.buzz-out(src="../../../images/person.png" style="width:20%;")
+          p.fb.f20.tc 个人中心
+      else
+        a.navbar-link(href="#",data-toggle="modal",data-target="#signinModal").db.col-md-5.h300.bggreen.m30.transition.scale.g0.tc
+
+          img.buzz-out(src="../../../images/person.png" style="width:20%;")
+          p.fb.f20.tc 个人中心
+      a.col-md-5.h300.bglp.m30.transition.scale.db
+      .col-md-5.h300.bgred.m30.transition.scale
+      .col-md-5.h300.bgyellow.m30.transition.scale

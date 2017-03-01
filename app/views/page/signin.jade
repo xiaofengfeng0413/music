@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+    .container.mt100
+      form(method="post",action="/user/ajax_signin")
+          form-group
+            label(for="signinName_ajax") 用户名
+            input#signinName_ajax.form-control(name="user[name]",type="text")  
+          form-group
+            label(for="signinPassword_ajax") 密码
+            input#signinPassword_ajax.form-control(name="user[password]",type="text" )   
+          button.btn.btn-success(type="submit" id="ajax_signin") 提交
+      h4#text 

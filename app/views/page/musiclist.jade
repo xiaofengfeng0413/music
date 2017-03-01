@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+  .container.mt100
+    .row
+      table.table.table-hover.table-borderrd
+        thead
+          tr
+            th 音乐名字
+            th 演唱者
+            th 国家
+            th 年份
+            th 录入时间
+            th 查看
+            th 更新
+            th 删除
+        tbody
+        each item in musics
+          tr(class="item-id-#{item._id")
+            td #{item.title}
+            td #{item.musicer}
+            td #{item.country}
+            td #{item.year}
+            td #{item.meta.createAT}
+            td: a(target="_blank",href="/music/#{item._id}") 查看
+            td: a(target="_blank",href="/admin/music/update/#{item._id}") 修改
+            td
+              button.btn.btn-danger.del(type="button" data-id="#{item._id}") 删除
